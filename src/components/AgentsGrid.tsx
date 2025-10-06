@@ -1,5 +1,5 @@
 import AgentCard from "./AgentCard";
-import environmentBg from "@/assets/environment-bg.jpg";
+import environmentBg from "@/assets/cyber-city-bg.jpg";
 
 const AgentsGrid = () => {
   const agents = [
