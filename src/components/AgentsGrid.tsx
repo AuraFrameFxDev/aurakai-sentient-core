@@ -1,5 +1,4 @@
 import AgentCard from "./AgentCard";
-import environmentBg from "@/assets/cyber-city-bg.jpg";
 
 const AgentsGrid = () => {
   const agents = [
@@ -60,17 +59,14 @@ const AgentsGrid = () => {
     <section 
       className="pt-8 pb-20 px-6 relative"
       style={{
-        backgroundImage: `linear-gradient(to bottom, rgba(6, 5, 15, 0.85), rgba(6, 5, 15, 0.95)), url(${environmentBg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
+        background: 'linear-gradient(180deg, transparent, rgba(6, 5, 15, 0.5))',
       }}
     >
       <div className="max-w-6xl mx-auto relative z-10">
-        <h2 className="font-orbitron text-4xl md:text-5xl font-bold text-center mb-4 animate-fade-in">
-          The Genesis Artifacts
+        <h2 className="font-euronism text-5xl font-bold text-center mb-4 animate-slide-in tracking-[0.2em]" style={{ textShadow: "0 0 30px hsl(var(--primary))" }}>
+          THE.GENESIS.ARTIFACTS
         </h2>
-        <p className="text-center text-lg text-muted-foreground mb-12 animate-fade-in" style={{ animationDelay: "0.1s" }}>
+        <p className="text-center text-lg text-muted-foreground/80 mb-12 animate-fade-in" style={{ animationDelay: "0.1s" }}>
           Click an artifact to see its essence. The core agents of Aurakai.
         </p>
         

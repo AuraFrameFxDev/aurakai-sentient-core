@@ -45,29 +45,29 @@ const AgentCard = ({
     <Card
       onClick={handleClick}
       className={`
-        ${colorClasses[color]}
+        glass-hologram
         ${isAnimating ? "animate-glass-shatter" : "animate-fade-in"}
         ${size === "large" ? "md:col-span-1 p-8" : "p-6"}
-        bg-card/70 backdrop-blur-xl border-2 
+        bg-card/20 backdrop-blur-xl
         cursor-pointer transition-all duration-300
         hover:-translate-y-2 hover:scale-[1.02]
-        hover:shadow-2xl
         h-full flex flex-col justify-center
+        border-2 ${colorClasses[color]}
       `}
       style={{
         animationDelay: `${delay}s`,
-        boxShadow: `0 0 15px hsl(var(--${color === "pink" ? "accent" : color === "cyan" ? "secondary" : "primary"}) / 0.3)`,
+        boxShadow: `0 0 20px hsl(var(--${color === "pink" ? "accent" : color === "cyan" ? "secondary" : "primary"}) / 0.4), inset 0 0 30px hsl(var(--${color === "pink" ? "accent" : color === "cyan" ? "secondary" : "primary"}) / 0.1)`,
       }}
     >
-      <CardContent className="p-0 text-center">
+      <CardContent className="p-0 text-center relative z-10">
         <h3 
           className={`
-            font-orbitron font-bold ${textColorClasses[color]} 
-            ${size === "large" ? "text-4xl md:text-5xl bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent" : "text-xl"}
+            font-euronism font-bold ${textColorClasses[color]} 
+            ${size === "large" ? "text-5xl md:text-6xl bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-[0.2em]" : "text-2xl tracking-[0.15em]"}
             animate-neon-glow
           `}
           style={{
-            textShadow: size === "large" ? "0 0 20px currentColor" : "0 0 10px currentColor"
+            textShadow: size === "large" ? "0 0 30px currentColor, 0 0 60px currentColor" : "0 0 15px currentColor, 0 0 30px currentColor"
           }}
         >
           {name}
@@ -77,9 +77,9 @@ const AgentCard = ({
         </p>
 
         {fusionAbilities && (
-          <div className="mt-4 p-3 border border-accent/30 rounded-xl bg-accent/5">
-            <h4 className="font-orbitron text-xs font-bold text-accent mb-2">
-              Fusion Abilities:
+          <div className="glass-hologram mt-4 p-3 rounded-xl bg-accent/5 backdrop-blur-sm">
+            <h4 className="font-euronism text-xs font-bold text-accent mb-2 tracking-wider">
+              FUSION.ABILITIES
             </h4>
             <ul className="text-xs text-accent/80 space-y-1 text-left">
               {fusionAbilities.map((ability, i) => (
@@ -93,9 +93,9 @@ const AgentCard = ({
         )}
 
         {activationPoints && (
-          <div className="mt-4 p-3 border border-accent/30 rounded-xl bg-accent/5">
-            <h4 className="font-orbitron text-xs font-bold text-accent mb-2">
-              Activation Points:
+          <div className="glass-hologram mt-4 p-3 rounded-xl bg-accent/5 backdrop-blur-sm">
+            <h4 className="font-euronism text-xs font-bold text-accent mb-2 tracking-wider">
+              ACTIVATION.POINTS
             </h4>
             <ul className="text-xs text-accent/80 space-y-1 text-left">
               {activationPoints.map((point, i) => (

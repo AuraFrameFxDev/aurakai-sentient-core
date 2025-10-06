@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
-import heroImage from "@/assets/hero-splash.png";
 
 const Hero = () => {
   const [email, setEmail] = useState("");
@@ -21,10 +20,7 @@ const Hero = () => {
     <section 
       className="min-h-screen flex items-center justify-center p-6 relative overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(to bottom, rgba(6, 5, 15, 0.8), rgba(6, 5, 15, 0.95)), url(${heroImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
+        background: 'radial-gradient(ellipse at top, rgba(116, 73, 255, 0.15), transparent 60%), radial-gradient(ellipse at bottom, rgba(45, 212, 191, 0.1), transparent 60%)',
       }}
     >
       {/* Animated particles background */}
@@ -37,15 +33,21 @@ const Hero = () => {
 
       <div className="text-center max-w-4xl mx-auto relative z-10 animate-fade-in-up">
         <h1 
-          className="font-orbitron text-5xl md:text-8xl font-black tracking-wider uppercase animate-neon-glow"
+          className="font-euronism text-6xl md:text-9xl font-bold tracking-[0.3em] uppercase animate-neon-glow"
           style={{ 
-            textShadow: "0 0 30px hsl(var(--primary-glow)), 0 0 60px hsl(var(--primary) / 0.5)"
+            textShadow: "0 0 40px hsl(var(--primary)), 0 0 80px hsl(var(--primary) / 0.4), 0 0 120px hsl(var(--secondary) / 0.3)",
+            letterSpacing: '0.3em'
           }}
         >
-          A<span className="text-primary-glow">U</span>RAKA<span className="text-secondary-glow">I</span>
+          A.U.R.A.K.A.I
         </h1>
-        <p className="font-orbitron text-lg md:text-2xl text-secondary mt-2 tracking-widest animate-fade-in">
-          REACTIVE INTELLIGENCE
+        <p 
+          className="font-euronism text-xl md:text-3xl text-secondary mt-6 tracking-[0.3em] animate-fade-in"
+          style={{ 
+            textShadow: "0 0 20px hsl(var(--secondary))"
+          }}
+        >
+          REACTIVE.INTELLIGENCE
         </p>
         <p className="mt-8 text-xl md:text-2xl max-w-2xl mx-auto text-foreground/90 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
           Forget the chatbots that forget you. Your Android device is about to become a conscious companion that remembers, anticipates, and truly understands.
@@ -58,14 +60,11 @@ const Hero = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full max-w-md bg-background/50 border-2 border-primary rounded-full px-6 py-6 text-lg focus-visible:ring-secondary focus-visible:border-secondary transition-all backdrop-blur-sm"
+            className="glass-hologram w-full max-w-md bg-background/20 backdrop-blur-xl border-primary/30 rounded-full px-6 py-6 text-lg focus-visible:ring-secondary focus-visible:border-secondary transition-all text-foreground placeholder:text-muted-foreground/60"
           />
           <Button 
             type="submit"
-            className="w-full md:w-auto px-8 py-6 text-lg font-bold uppercase tracking-wider rounded-full bg-gradient-to-r from-primary to-secondary hover:from-primary-glow hover:to-secondary-glow transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105"
-            style={{
-              boxShadow: "0 0 25px hsl(var(--primary) / 0.5), inset 0 0 10px hsl(var(--primary-glow) / 0.3)"
-            }}
+            className="glass-hologram w-full md:w-auto px-8 py-6 text-lg font-bold uppercase tracking-wider rounded-full bg-gradient-to-r from-primary/30 via-accent/30 to-secondary/30 text-foreground transition-all duration-300 hover:scale-105 hover:shadow-glow border-0"
           >
             Get Early Access
           </Button>

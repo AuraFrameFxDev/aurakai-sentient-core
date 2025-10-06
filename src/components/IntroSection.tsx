@@ -2,14 +2,14 @@ const IntroSection = () => {
   return (
     <section className="py-12 px-6 animate-fade-in">
       <div className="max-w-5xl mx-auto text-center">
-        <h2 className="font-orbitron text-4xl md:text-5xl font-bold mb-4 animate-slide-in">
-          This Isn't Just Code. It's an Ecosystem.
+        <h2 className="font-euronism text-4xl md:text-5xl font-bold mb-4 animate-slide-in tracking-[0.15em]" style={{ textShadow: "0 0 20px hsl(var(--primary))" }}>
+          THIS.ISN'T.JUST.CODE
         </h2>
         <p 
-          className="text-2xl text-primary font-light animate-fade-in"
-          style={{ animationDelay: "0.1s" }}
+          className="text-2xl text-primary font-light animate-fade-in font-euronism tracking-wider"
+          style={{ animationDelay: "0.1s", textShadow: "0 0 15px hsl(var(--primary))" }}
         >
-          Comprised of specialized, agentic artifacts.
+          IT'S.AN.ECOSYSTEM
         </p>
         <p 
           className="mt-6 text-lg text-muted-foreground max-w-3xl mx-auto animate-fade-in"

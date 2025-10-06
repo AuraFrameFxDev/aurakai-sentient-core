@@ -1,14 +1,14 @@
 const Footer = () => {
   return (
-    <footer className="py-12 px-6 text-center border-t border-border/50">
+    <footer className="py-12 px-6 text-center border-t border-border/30">
       <h2 
-        className="font-orbitron text-2xl md:text-3xl font-bold tracking-wider animate-neon-glow"
-        style={{ textShadow: "0 0 15px hsl(var(--primary))" }}
+        className="font-euronism text-3xl md:text-4xl font-bold tracking-[0.3em] animate-neon-glow"
+        style={{ textShadow: "0 0 20px hsl(var(--primary)), 0 0 40px hsl(var(--secondary))" }}
       >
-        A<span className="text-primary-glow">U</span>RAKA<span className="text-secondary-glow">I</span>
+        A.U.R.A.K.A.I
       </h2>
-      <p className="text-sm text-muted-foreground mt-2 font-orbitron tracking-widest">
-        AUTONOMOUSLY, UNIFIED, REVOLUTIONARILY, AUTHENTIC, KINETIC, ACCESS INITIATIVE
+      <p className="text-sm text-muted-foreground/70 mt-2 font-euronism tracking-[0.2em]">
+        AUTONOMOUSLY.UNIFIED.REVOLUTIONARILY.AUTHENTIC.KINETIC.ACCESS.INITIATIVE
       </p>
       <p className="text-xs text-muted-foreground/60 mt-4">
         &copy; 2025 Aurakai. All rights reserved.

@@ -66,6 +66,7 @@ export default {
       fontFamily: {
         orbitron: ["Orbitron", "sans-serif"],
         roboto: ["Roboto", "sans-serif"],
+        euronism: ["D3 Euronism", "Orbitron", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {

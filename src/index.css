@@ -51,6 +51,16 @@ All colors MUST be HSL.
     --shadow-cyan: 0 0 15px hsl(var(--secondary) / 0.5);
     --shadow-pink: 0 0 15px hsl(var(--accent) / 0.5);
     --shadow-glow: 0 0 30px hsl(var(--primary-glow) / 0.3);
+
+    /* Holographic Gradients */
+    --hologram-border: linear-gradient(135deg, 
+      hsl(var(--primary) / 0.4), 
+      hsl(var(--secondary) / 0.4), 
+      hsl(var(--accent) / 0.4));
+    --glass-shine: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.1) 0%, 
+      rgba(255, 255, 255, 0.05) 50%, 
+      rgba(255, 255, 255, 0) 100%);
   }
 }
 
@@ -91,5 +101,43 @@ All colors MUST be HSL.
   
   .text-accent-glow {
     color: hsl(var(--accent-glow));
+  }
+
+  .glass-hologram {
+    background: linear-gradient(135deg, 
+      rgba(116, 73, 255, 0.08), 
+      rgba(45, 212, 191, 0.08), 
+      rgba(236, 72, 153, 0.08));
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+  }
+
+  .glass-hologram::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, 
+      hsl(var(--primary) / 0.5), 
+      hsl(var(--secondary) / 0.5), 
+      hsl(var(--accent) / 0.5));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .glass-hologram::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.15) 0%, 
+      rgba(255, 255, 255, 0) 50%, 
+      rgba(255, 255, 255, 0.05) 100%);
+    pointer-events: none;
   }
 }
