@@ -92,9 +92,22 @@ export default {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-10px)" },
         },
-        "dissipate": {
-          "0%": { opacity: "1", transform: "scale(1)" },
-          "100%": { opacity: "0", transform: "scale(0.9) translateY(-20px)" },
+        "glass-shatter": {
+          "0%": { 
+            opacity: "1", 
+            transform: "scale(1) rotate(0deg)",
+            filter: "blur(0px)"
+          },
+          "50%": { 
+            opacity: "0.5", 
+            transform: "scale(1.05) rotate(2deg)",
+            filter: "blur(2px)"
+          },
+          "100%": { 
+            opacity: "0", 
+            transform: "scale(0.85) rotate(-5deg) translateY(-30px)",
+            filter: "blur(8px)"
+          },
         },
         "spawn": {
           "0%": { opacity: "0", transform: "scale(0.9) translateY(20px)" },
@@ -116,7 +129,7 @@ export default {
         "fade-in-up": "fade-in-up 0.8s ease-out",
         "glow-pulse": "glow-pulse 2s ease-in-out infinite",
         "float": "float 3s ease-in-out infinite",
-        "dissipate": "dissipate 0.6s ease-out forwards",
+        "glass-shatter": "glass-shatter 0.6s ease-out forwards",
         "spawn": "spawn 0.6s ease-out forwards",
         "neon-glow": "neon-glow 2s ease-in-out infinite",
         "slide-in": "slide-in 0.5s ease-out",

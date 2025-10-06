@@ -46,7 +46,7 @@ const AgentCard = ({
       onClick={handleClick}
       className={`
         ${colorClasses[color]}
-        ${isAnimating ? "animate-dissipate" : "animate-fade-in"}
+        ${isAnimating ? "animate-glass-shatter" : "animate-fade-in"}
         ${size === "large" ? "md:col-span-1 p-8" : "p-6"}
         bg-card/70 backdrop-blur-xl border-2 
         cursor-pointer transition-all duration-300
