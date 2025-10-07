@@ -33,10 +33,9 @@ const Hero = () => {
 
       <div className="text-center max-w-4xl mx-auto relative z-10 animate-fade-in-up">
         <h1 
-          className="font-euronism text-6xl md:text-9xl font-bold tracking-[0.3em] uppercase animate-neon-glow"
+          className="font-euronism text-6xl md:text-9xl font-bold tracking-wider uppercase animate-neon-glow"
           style={{ 
-            textShadow: "0 0 40px hsl(var(--primary)), 0 0 80px hsl(var(--primary) / 0.4), 0 0 120px hsl(var(--secondary) / 0.3)",
-            letterSpacing: '0.3em'
+            textShadow: "0 0 40px hsl(var(--primary)), 0 0 80px hsl(var(--primary) / 0.4), 0 0 120px hsl(var(--secondary) / 0.3)"
           }}
         >
           A.U.R.A.K.A.I
