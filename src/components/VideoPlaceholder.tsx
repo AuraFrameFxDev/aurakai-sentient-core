@@ -1,7 +1,7 @@
 import { Play } from "lucide-react";
 
 const VideoPlaceholder = () => {
-  const videoSrc = "Immersive_Digital_Landscape_Video_Soon.mp4";
+  const videoSrc = "Video_Generation_From_Image-2.mp4";
 
   return (
     <section className="py-16 px-6 animate-fade-in">
