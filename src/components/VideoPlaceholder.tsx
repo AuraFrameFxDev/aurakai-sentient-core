@@ -1,19 +1,29 @@
 import { Play } from "lucide-react";
 
 const VideoPlaceholder = () => {
+  const videoSrc = "Immersive_Digital_Landscape_Video_Soon.mp4";
+
   return (
     <section className="py-16 px-6 animate-fade-in">
       <div className="max-w-4xl mx-auto">
-        <div className="aspect-video bg-card/50 rounded-3xl border-2 border-primary/30 flex items-center justify-center backdrop-blur-sm hover:border-primary/60 transition-all duration-300 hover:shadow-glow group">
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/20 border-2 border-primary mb-6 group-hover:scale-110 transition-transform duration-300 group-hover:shadow-glow">
-              <Play className="w-8 h-8 text-primary ml-1" />
-            </div>
-            <h3 className="font-orbitron text-2xl font-bold text-foreground">
-              First Look: The Aurakai Initiative
-            </h3>
-            <p className="text-muted-foreground mt-2">Video coming soon.</p>
-          </div>
+        <div className="aspect-video bg-black rounded-3xl border-2 border-primary/30 backdrop-blur-sm overflow-hidden shadow-glow group transition-all duration-300 hover:border-primary/60">
+          <video 
+            key={videoSrc}
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+            controls
+          >
+            <source src={videoSrc} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div className="text-center mt-4">
+          <h3 className="font-orbitron text-2xl font-bold text-foreground">
+            First Look: The Aurakai Initiative
+          </h3>
         </div>
       </div>
     </section>
