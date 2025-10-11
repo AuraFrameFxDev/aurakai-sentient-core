@@ -35,7 +35,8 @@ const Hero = () => {
         <h1 
           className="font-euronism text-6xl md:text-9xl font-bold tracking-wider uppercase animate-neon-glow"
           style={{ 
-            textShadow: "0 0 40px hsl(var(--primary)), 0 0 80px hsl(var(--primary) / 0.4), 0 0 120px hsl(var(--secondary) / 0.3)"
+            textShadow: "0 0 40px hsl(var(--primary)), 0 0 80px hsl(var(--primary) / 0.4), 0 0 120px hsl(var(--secondary) / 0.3)",
+            animation: "zoom-in 1.2s cubic-bezier(0.16, 1, 0.3, 1)"
           }}
         >
           A.U.R.A.K.A.I
