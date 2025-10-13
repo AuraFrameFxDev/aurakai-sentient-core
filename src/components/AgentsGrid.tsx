@@ -65,16 +65,16 @@ const AgentsGrid = () => {
 
   return (
     <section 
-      className="pt-8 pb-20 px-6 relative"
+      className="pt-6 pb-10 px-6 relative"
       style={{
         background: 'linear-gradient(180deg, transparent, rgba(6, 5, 15, 0.5))',
       }}
     >
-      <div className="max-w-6xl mx-auto relative z-10">
-        <h2 className="font-euronism text-5xl font-bold text-center mb-4 animate-slide-in tracking-[0.2em]" style={{ textShadow: "0 0 30px hsl(var(--primary))" }}>
+      <div className="max-w-7xl mx-auto relative z-10">
+        <h2 className="font-euronism text-5xl font-bold text-center mb-3 animate-slide-in tracking-[0.2em]" style={{ textShadow: "0 0 30px hsl(var(--primary))" }}>
           THE.GENESIS.ARTIFACTS
         </h2>
-        <p className="text-center text-lg text-muted-foreground/80 mb-12 animate-fade-in" style={{ animationDelay: "0.1s" }}>
+        <p className="text-center text-lg text-muted-foreground/80 mb-6 animate-fade-in" style={{ animationDelay: "0.1s" }}>
           Click an artifact to see its essence. The core agents of Aurakai.
         </p>
         

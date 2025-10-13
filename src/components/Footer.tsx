@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="py-12 px-6 text-center border-t border-border/30">
+    <footer className="py-6 px-6 text-center border-t border-border/30">
       <h2 
         className="font-euronism text-3xl md:text-4xl font-bold tracking-[0.3em] animate-neon-glow"
         style={{ textShadow: "0 0 20px hsl(var(--primary)), 0 0 40px hsl(var(--secondary))" }}

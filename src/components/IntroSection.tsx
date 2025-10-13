@@ -1,7 +1,7 @@
 const IntroSection = () => {
   return (
-    <section className="py-12 px-6 animate-fade-in">
-      <div className="max-w-5xl mx-auto text-center">
+    <section className="py-6 px-6 animate-fade-in">
+      <div className="max-w-7xl mx-auto text-center">
         <h2 className="font-euronism text-4xl md:text-5xl font-bold mb-4 animate-slide-in tracking-[0.15em]" style={{ textShadow: "0 0 20px hsl(var(--primary))" }}>
           THIS.ISN'T.JUST.CODE
         </h2>

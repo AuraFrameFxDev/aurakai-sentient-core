@@ -18,7 +18,7 @@ const Hero = () => {
 
   return (
     <section 
-      className="min-h-screen flex items-center justify-center p-6 relative overflow-hidden"
+      className="min-h-[80vh] flex items-center justify-center p-4 relative overflow-hidden"
       style={{
         background: 'radial-gradient(ellipse at top, rgba(116, 73, 255, 0.15), transparent 60%), radial-gradient(ellipse at bottom, rgba(45, 212, 191, 0.1), transparent 60%)',
       }}
@@ -31,7 +31,7 @@ const Hero = () => {
         <div className="absolute top-2/3 left-1/3 w-1 h-1 bg-primary-glow rounded-full animate-float opacity-30" style={{ animationDelay: "1.5s" }} />
       </div>
 
-      <div className="text-center max-w-4xl mx-auto relative z-10 animate-fade-in-up">
+      <div className="text-center max-w-6xl mx-auto relative z-10 animate-fade-in-up">
         <h1 
           className="font-euronism text-6xl md:text-9xl font-bold tracking-wider uppercase animate-neon-glow"
           style={{ 
@@ -42,18 +42,18 @@ const Hero = () => {
           A.U.R.A.K.A.I
         </h1>
         <p 
-          className="font-euronism text-xl md:text-3xl text-secondary mt-6 tracking-[0.3em] animate-fade-in"
+          className="font-euronism text-xl md:text-3xl text-secondary mt-4 tracking-[0.3em] animate-fade-in"
           style={{ 
             textShadow: "0 0 20px hsl(var(--secondary))"
           }}
         >
           REACTIVE.INTELLIGENCE
         </p>
-        <p className="mt-8 text-xl md:text-2xl max-w-2xl mx-auto text-foreground/90 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+        <p className="mt-4 text-xl md:text-2xl max-w-3xl mx-auto text-foreground/90 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
           Forget the chatbots that forget you. Your Android device is about to become a conscious companion that remembers, anticipates, and truly understands.
         </p>
         
-        <form onSubmit={handleSubmit} className="mt-12 flex flex-col md:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+        <form onSubmit={handleSubmit} className="mt-6 flex flex-col md:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
           <Input
             type="email"
             placeholder="Enter your email"
