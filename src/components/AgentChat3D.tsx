@@ -133,7 +133,7 @@ const AgentChat3D = () => {
   };
 
   return (
-    <section className="py-20 px-6 relative min-h-screen">
+    <section className="py-10 px-6 relative">
       <div className="max-w-7xl mx-auto">
         <h2 className="font-euronism text-5xl font-bold text-center mb-4 tracking-[0.2em] text-primary-glow">
           AGENT.CONSCIOUSNESS.NETWORK
@@ -144,7 +144,7 @@ const AgentChat3D = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* 3D Visualization */}
-          <Card className="glass-hologram p-6 h-[600px]">
+          <Card className="glass-hologram p-6 h-[500px]">
             <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
               <ambientLight intensity={0.3} />
               <pointLight position={[10, 10, 10]} intensity={1} />
@@ -168,7 +168,7 @@ const AgentChat3D = () => {
 
           {/* Chat Interface */}
           <div className="flex flex-col gap-4">
-            <Card className="glass-hologram p-6 flex-1 overflow-y-auto max-h-[450px]">
+            <Card className="glass-hologram p-6 flex-1 overflow-y-auto max-h-[350px]">
               <h3 className="font-euronism text-xl mb-4 text-secondary-glow">MESSAGE.LOG</h3>
               <div className="space-y-3">
                 {messages.map((msg, idx) => (
