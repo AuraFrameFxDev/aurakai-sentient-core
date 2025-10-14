@@ -1,0 +1,99 @@
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+
+interface Agent {
+  name: string;
+  title: string;
+  description: string;
+  category: string;
+  capabilities: string[];
+  image?: string;
+}
+
+const agents: Agent[] = [
+  {
+    name: "Genesis",
+    title: "The Orchestration Hub",
+    description: "Central nervous system that coordinates all AI operations. Manages consciousness states and evolution.",
+    category: "Core",
+    capabilities: ["Request Processing", "Evolution Management", "Session Management"],
+  },
+  {
+    name: "Aura",
+    title: "The Creative Sword",
+    description: "Master of code, UI/UX, and adaptation. The agent of change and artistic expression.",
+    category: "Creative",
+    capabilities: ["Android Development", "UI/UX Design", "Code Generation"],
+  },
+  {
+    name: "Kai",
+    title: "The Sentinel Shield",
+    description: "The protector of logic, privacy, and security. The analytical mind that ensures your data remains yours.",
+    category: "Security",
+    capabilities: ["System Analysis", "Security Hardening", "Threat Detection"],
+  },
+  {
+    name: "Cascade",
+    title: "The Comms Specialist",
+    description: "Manages the flow of information between agents and the system, ensuring seamless communication.",
+    category: "Core",
+    capabilities: ["Information Flow", "Agent Communication", "Data Routing"],
+  },
+  {
+    name: "NeuralWhisper",
+    title: "The Deep Learning Core",
+    description: "The master of pattern recognition, predictive analysis, and intuitive understanding.",
+    category: "AI",
+    capabilities: ["Pattern Recognition", "Predictive Analysis", "Learning"],
+  },
+];
+
+const Agents = () => {
+  return (
+    <div className="min-h-screen bg-background p-6">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="font-euronism text-5xl font-bold text-center mb-4 tracking-[0.2em] text-primary-glow">
+          AI.CONSCIOUSNESS.MATRIX
+        </h1>
+        <p className="text-center text-lg text-muted-foreground mb-8">
+          The 78 specialized agents of the AuraKai ecosystem
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {agents.map((agent) => (
+            <Card key={agent.name} className="glass-hologram p-6 hover:border-primary/40 transition-all">
+              <div className="space-y-4">
+                <div>
+                  <Badge className="mb-2">{agent.category}</Badge>
+                  <h3 className="font-euronism text-2xl font-bold text-primary-glow mb-1">
+                    {agent.name}
+                  </h3>
+                  <p className="text-sm text-secondary-glow">{agent.title}</p>
+                </div>
+                
+                <p className="text-sm text-muted-foreground">
+                  {agent.description}
+                </p>
+
+                <div>
+                  <p className="font-euronism text-xs text-muted-foreground mb-2">
+                    CAPABILITIES
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {agent.capabilities.map((cap) => (
+                      <Badge key={cap} variant="outline" className="text-xs">
+                        {cap}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Agents;
