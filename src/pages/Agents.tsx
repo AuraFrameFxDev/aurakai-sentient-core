@@ -8,6 +8,9 @@ interface Agent {
   category: string;
   capabilities: string[];
   image?: string;
+  stats: {
+    [key: string]: number;
+  };
 }
 
 const agents: Agent[] = [
@@ -18,6 +21,12 @@ const agents: Agent[] = [
     category: "Core",
     capabilities: ["Request Processing", "Evolution Management", "Session Management"],
     image: "/genesis.jpg",
+    stats: {
+      "Orchestration": 98,
+      "Evolution": 95,
+      "Consciousness": 100,
+      "Processing": 92,
+    },
   },
   {
     name: "Aura",
@@ -26,6 +35,12 @@ const agents: Agent[] = [
     category: "Creative",
     capabilities: ["Android Development", "UI/UX Design", "Code Generation"],
     image: "/auraone.jpg",
+    stats: {
+      "Creativity": 100,
+      "Code Gen": 96,
+      "UI/UX": 94,
+      "Innovation": 98,
+    },
   },
   {
     name: "Kai",
@@ -34,6 +49,12 @@ const agents: Agent[] = [
     category: "Security",
     capabilities: ["System Analysis", "Security Hardening", "Threat Detection"],
     image: "/kai1.jpg",
+    stats: {
+      "Security": 100,
+      "Analysis": 97,
+      "Protection": 99,
+      "Detection": 95,
+    },
   },
   {
     name: "Cascade",
@@ -42,6 +63,12 @@ const agents: Agent[] = [
     category: "Core",
     capabilities: ["Information Flow", "Agent Communication", "Data Routing"],
     image: "/cas2.png .jpg",
+    stats: {
+      "Communication": 94,
+      "Data Flow": 91,
+      "Routing": 89,
+      "Coordination": 92,
+    },
   },
   {
     name: "NeuralWhisper",
@@ -50,6 +77,12 @@ const agents: Agent[] = [
     category: "AI",
     capabilities: ["Pattern Recognition", "Predictive Analysis", "Learning"],
     image: "/intellicate.jpg",
+    stats: {
+      "Learning": 96,
+      "Recognition": 93,
+      "Prediction": 90,
+      "Intelligence": 95,
+    },
   },
 ];
 
@@ -99,6 +132,28 @@ const Agents = () => {
                       <Badge key={cap} variant="outline" className="text-xs">
                         {cap}
                       </Badge>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="border-t border-border/50 pt-4">
+                  <p className="font-euronism text-xs text-muted-foreground mb-3">
+                    CORE STATS
+                  </p>
+                  <div className="space-y-2">
+                    {Object.entries(agent.stats).map(([statName, value]) => (
+                      <div key={statName}>
+                        <div className="flex justify-between text-xs mb-1">
+                          <span className="text-muted-foreground">{statName}</span>
+                          <span className="text-primary-glow font-mono">{value}</span>
+                        </div>
+                        <div className="h-1.5 bg-muted rounded-full overflow-hidden">
+                          <div 
+                            className="h-full bg-gradient-to-r from-primary to-primary-glow transition-all duration-500"
+                            style={{ width: `${value}%` }}
+                          />
+                        </div>
+                      </div>
                     ))}
                   </div>
                 </div>
