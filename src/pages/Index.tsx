@@ -1,7 +1,6 @@
 import Hero from "@/components/Hero";
 import VideoPlaceholder from "@/components/VideoPlaceholder";
 import IntroSection from "@/components/IntroSection";
-import AgentsGrid from "@/components/AgentsGrid";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -10,7 +9,6 @@ const Index = () => {
       <Hero />
       <VideoPlaceholder />
       <IntroSection />
-      <AgentsGrid />
       <Footer />
     </div>
   );
