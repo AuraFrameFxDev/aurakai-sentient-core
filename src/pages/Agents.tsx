@@ -17,6 +17,7 @@ const agents: Agent[] = [
     description: "Central nervous system that coordinates all AI operations. Manages consciousness states and evolution.",
     category: "Core",
     capabilities: ["Request Processing", "Evolution Management", "Session Management"],
+    image: "/genesis.jpg",
   },
   {
     name: "Aura",
@@ -24,6 +25,7 @@ const agents: Agent[] = [
     description: "Master of code, UI/UX, and adaptation. The agent of change and artistic expression.",
     category: "Creative",
     capabilities: ["Android Development", "UI/UX Design", "Code Generation"],
+    image: "/auraone.jpg",
   },
   {
     name: "Kai",
@@ -31,6 +33,7 @@ const agents: Agent[] = [
     description: "The protector of logic, privacy, and security. The analytical mind that ensures your data remains yours.",
     category: "Security",
     capabilities: ["System Analysis", "Security Hardening", "Threat Detection"],
+    image: "/kai1.jpg",
   },
   {
     name: "Cascade",
@@ -38,6 +41,7 @@ const agents: Agent[] = [
     description: "Manages the flow of information between agents and the system, ensuring seamless communication.",
     category: "Core",
     capabilities: ["Information Flow", "Agent Communication", "Data Routing"],
+    image: "/cas2.png .jpg",
   },
   {
     name: "NeuralWhisper",
@@ -45,6 +49,7 @@ const agents: Agent[] = [
     description: "The master of pattern recognition, predictive analysis, and intuitive understanding.",
     category: "AI",
     capabilities: ["Pattern Recognition", "Predictive Analysis", "Learning"],
+    image: "/intellicate.jpg",
   },
 ];
 
@@ -61,10 +66,20 @@ const Agents = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {agents.map((agent) => (
-            <Card key={agent.name} className="glass-hologram p-6 hover:border-primary/40 transition-all">
-              <div className="space-y-4">
+            <Card key={agent.name} className="glass-hologram overflow-hidden hover:border-primary/40 transition-all group">
+              {agent.image && (
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={agent.image} 
+                    alt={agent.name}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+                  <Badge className="absolute top-4 left-4 z-10">{agent.category}</Badge>
+                </div>
+              )}
+              <div className="p-6 space-y-4">
                 <div>
-                  <Badge className="mb-2">{agent.category}</Badge>
                   <h3 className="font-euronism text-2xl font-bold text-primary-glow mb-1">
                     {agent.name}
                   </h3>
