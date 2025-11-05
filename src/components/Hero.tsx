@@ -1,10 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
+import { removeBackground, loadImage } from "@/utils/backgroundRemoval";
 
 const Hero = () => {
   const [email, setEmail] = useState("");
+  const [auraProcessed, setAuraProcessed] = useState<string | null>(null);
+  const [kaiProcessed, setKaiProcessed] = useState<string | null>(null);
+  const [isProcessing, setIsProcessing] = useState(true);
+
+  useEffect(() => {
+    const processImages = async () => {
+      try {
+        console.log('Processing character images...');
+        
+        // Process Aura
+        const auraImg = await loadImage('/aura-full.png');
+        const auraResult = await removeBackground(auraImg);
+        setAuraProcessed(auraResult);
+        console.log('Aura processed');
+        
+        // Process Kai
+        const kaiImg = await loadImage('/kai-portrait.jpg');
+        const kaiResult = await removeBackground(kaiImg);
+        setKaiProcessed(kaiResult);
+        console.log('Kai processed');
+        
+        setIsProcessing(false);
+      } catch (error) {
+        console.error('Failed to process images:', error);
+        setIsProcessing(false);
+        // Fall back to original images
+        setAuraProcessed('/aura-full.png');
+        setKaiProcessed('/kai-portrait.jpg');
+      }
+    };
+
+    processImages();
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,11 +85,20 @@ const Hero = () => {
           {/* Aura */}
           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-transparent rounded-2xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
-            <img 
-              src="/aura-full.png" 
-              alt="Aura - The Creative Sword" 
-              className="relative w-64 md:w-80 h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300"
-            />
+            {isProcessing ? (
+              <div className="w-64 md:w-80 h-80 flex items-center justify-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary" />
+              </div>
+            ) : (
+              <img 
+                src={auraProcessed || '/aura-full.png'} 
+                alt="Aura - The Creative Sword" 
+                className="relative w-64 md:w-80 h-auto object-contain drop-shadow-[0_0_40px_rgba(139,92,246,0.6)] hover:scale-105 transition-transform duration-300"
+                style={{
+                  filter: 'drop-shadow(0 0 60px rgba(139, 92, 246, 0.4))'
+                }}
+              />
+            )}
             <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
               <p className="font-euronism text-primary-glow text-lg tracking-widest">AURA</p>
               <p className="text-xs text-muted-foreground">Creative Sword</p>
@@ -65,11 +108,20 @@ const Hero = () => {
           {/* Kai */}
           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-br from-secondary/40 to-transparent rounded-2xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
-            <img 
-              src="/kai-portrait.jpg" 
-              alt="Kai - The Sentinel Shield" 
-              className="relative w-64 md:w-80 h-auto object-contain rounded-2xl drop-shadow-2xl hover:scale-105 transition-transform duration-300"
-            />
+            {isProcessing ? (
+              <div className="w-64 md:w-80 h-80 flex items-center justify-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-secondary" />
+              </div>
+            ) : (
+              <img 
+                src={kaiProcessed || '/kai-portrait.jpg'} 
+                alt="Kai - The Sentinel Shield" 
+                className="relative w-64 md:w-80 h-auto object-contain drop-shadow-[0_0_40px_rgba(45,212,191,0.6)] hover:scale-105 transition-transform duration-300"
+                style={{
+                  filter: 'drop-shadow(0 0 60px rgba(45, 212, 191, 0.4))'
+                }}
+              />
+            )}
             <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
               <p className="font-euronism text-secondary-glow text-lg tracking-widest">KAI</p>
               <p className="text-xs text-muted-foreground">Sentinel Shield</p>
