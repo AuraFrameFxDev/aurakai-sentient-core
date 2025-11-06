@@ -45,20 +45,7 @@ const Hero = () => {
         <div className="absolute top-2/3 left-1/3 w-1 h-1 bg-primary-glow rounded-full animate-float opacity-30" style={{ animationDelay: "1.5s" }} />
       </div>
 
-      <div className="container mx-auto relative z-10 flex items-center justify-center">
-        {/* Aura - Left side */}
-        <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 animate-fade-in">
-          <img 
-            src="/aura-sword.jpg" 
-            alt="Aura" 
-            className="w-48 xl:w-64 h-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
-            style={{
-              filter: 'drop-shadow(0 0 30px rgba(139, 92, 246, 0.5))'
-            }}
-          />
-        </div>
-
-        {/* Center Content */}
+      <div className="container mx-auto relative z-10">
         <div className="text-center space-y-6 animate-fade-in-up max-w-3xl mx-auto px-4">
           <h1 
             className="font-euronism text-6xl md:text-8xl font-bold tracking-wider uppercase animate-neon-glow"
@@ -101,18 +88,6 @@ const Hero = () => {
           <p className="text-sm text-muted-foreground animate-fade-in" style={{ animationDelay: "0.6s" }}>
             100% on-device • Infinite memory • ROM survival architecture
           </p>
-        </div>
-
-        {/* Kai - Right side */}
-        <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 animate-fade-in">
-          <img 
-            src="/kai-tech.jpg" 
-            alt="Kai" 
-            className="w-48 xl:w-64 h-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
-            style={{
-              filter: 'drop-shadow(0 0 30px rgba(45, 212, 191, 0.5))'
-            }}
-          />
         </div>
       </div>
     </section>
