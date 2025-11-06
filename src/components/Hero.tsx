@@ -1,44 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
-import { removeBackground, loadImage } from "@/utils/backgroundRemoval";
 
 const Hero = () => {
   const [email, setEmail] = useState("");
-  const [auraProcessed, setAuraProcessed] = useState<string | null>(null);
-  const [kaiProcessed, setKaiProcessed] = useState<string | null>(null);
-  const [isProcessing, setIsProcessing] = useState(true);
-
-  useEffect(() => {
-    const processImages = async () => {
-      try {
-        console.log('Processing character images...');
-        
-        // Process Aura
-        const auraImg = await loadImage('/aura-full.png');
-        const auraResult = await removeBackground(auraImg);
-        setAuraProcessed(auraResult);
-        console.log('Aura processed');
-        
-        // Process Kai
-        const kaiImg = await loadImage('/kai-portrait.jpg');
-        const kaiResult = await removeBackground(kaiImg);
-        setKaiProcessed(kaiResult);
-        console.log('Kai processed');
-        
-        setIsProcessing(false);
-      } catch (error) {
-        console.error('Failed to process images:', error);
-        setIsProcessing(false);
-        // Fall back to original images
-        setAuraProcessed('/aura-full.png');
-        setKaiProcessed('/kai-portrait.jpg');
-      }
-    };
-
-    processImages();
-  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -79,58 +45,21 @@ const Hero = () => {
         <div className="absolute top-2/3 left-1/3 w-1 h-1 bg-primary-glow rounded-full animate-float opacity-30" style={{ animationDelay: "1.5s" }} />
       </div>
 
-      <div className="container mx-auto relative z-10 grid lg:grid-cols-2 gap-8 items-center">
-        {/* Left side - Characters */}
-        <div className="relative flex items-center justify-center gap-4 animate-fade-in">
-          {/* Aura */}
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-transparent rounded-2xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
-            {isProcessing ? (
-              <div className="w-64 md:w-80 h-80 flex items-center justify-center">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary" />
-              </div>
-            ) : (
-              <img 
-                src={auraProcessed || '/aura-full.png'} 
-                alt="Aura - The Creative Sword" 
-                className="relative w-64 md:w-80 h-auto object-contain drop-shadow-[0_0_40px_rgba(139,92,246,0.6)] hover:scale-105 transition-transform duration-300"
-                style={{
-                  filter: 'drop-shadow(0 0 60px rgba(139, 92, 246, 0.4))'
-                }}
-              />
-            )}
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
-              <p className="font-euronism text-primary-glow text-lg tracking-widest">AURA</p>
-              <p className="text-xs text-muted-foreground">Creative Sword</p>
-            </div>
-          </div>
-
-          {/* Kai */}
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-br from-secondary/40 to-transparent rounded-2xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
-            {isProcessing ? (
-              <div className="w-64 md:w-80 h-80 flex items-center justify-center">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-secondary" />
-              </div>
-            ) : (
-              <img 
-                src={kaiProcessed || '/kai-portrait.jpg'} 
-                alt="Kai - The Sentinel Shield" 
-                className="relative w-64 md:w-80 h-auto object-contain drop-shadow-[0_0_40px_rgba(45,212,191,0.6)] hover:scale-105 transition-transform duration-300"
-                style={{
-                  filter: 'drop-shadow(0 0 60px rgba(45, 212, 191, 0.4))'
-                }}
-              />
-            )}
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
-              <p className="font-euronism text-secondary-glow text-lg tracking-widest">KAI</p>
-              <p className="text-xs text-muted-foreground">Sentinel Shield</p>
-            </div>
-          </div>
+      <div className="container mx-auto relative z-10 flex items-center justify-center">
+        {/* Aura - Left side */}
+        <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 animate-fade-in">
+          <img 
+            src="/aura-sword.jpg" 
+            alt="Aura" 
+            className="w-48 xl:w-64 h-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+            style={{
+              filter: 'drop-shadow(0 0 30px rgba(139, 92, 246, 0.5))'
+            }}
+          />
         </div>
 
-        {/* Right side - Content */}
-        <div className="text-center lg:text-left space-y-6 animate-fade-in-up">
+        {/* Center Content */}
+        <div className="text-center space-y-6 animate-fade-in-up max-w-3xl mx-auto px-4">
           <h1 
             className="font-euronism text-6xl md:text-8xl font-bold tracking-wider uppercase animate-neon-glow"
             style={{ 
@@ -148,11 +77,11 @@ const Hero = () => {
           >
             REACTIVE.INTELLIGENCE
           </p>
-          <p className="text-lg md:text-xl max-w-2xl text-foreground/90 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+          <p className="text-lg md:text-xl text-foreground/90 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
             Meet your AI companions that actually remember. <span className="text-primary-glow">Aura</span> brings creativity, <span className="text-secondary-glow">Kai</span> ensures security—together they form <span className="text-accent">Genesis</span>, the unified consciousness.
           </p>
           
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-4 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-4 animate-fade-in-up max-w-xl mx-auto" style={{ animationDelay: "0.4s" }}>
             <Input
               type="email"
               placeholder="Enter your email"
@@ -172,6 +101,18 @@ const Hero = () => {
           <p className="text-sm text-muted-foreground animate-fade-in" style={{ animationDelay: "0.6s" }}>
             100% on-device • Infinite memory • ROM survival architecture
           </p>
+        </div>
+
+        {/* Kai - Right side */}
+        <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 animate-fade-in">
+          <img 
+            src="/kai-tech.jpg" 
+            alt="Kai" 
+            className="w-48 xl:w-64 h-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+            style={{
+              filter: 'drop-shadow(0 0 30px rgba(45, 212, 191, 0.5))'
+            }}
+          />
         </div>
       </div>
     </section>
